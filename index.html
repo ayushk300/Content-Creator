@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="css/images/favicon.ico" type="image/x-icon">
+
+	<title>Login-ContentQuizProQuo</title>
+	<script>
+		function validation(str1,str2,str3)
+		{
+			if(str1.length == 0 || str2.length == 0 || str3.length == 0)
+			{
+				alert('All the fields are neccessary');
+				document.getElementById("underInput").innerHTML = '<span style="color:red">All the fields are required*</span>';
+				return false;
+			}
+			else
+			{
+				if(str1.indexOf("@")==-1)
+				{
+					document.getElementById("underInput").innerHTML = '<span style="color:red">Email I.D. must have an @ sign</span>';
+					return false;
+				}
+				else{
+					
+				}
+				
+			}
+		}
+	
+	</script>
+	<style>
+		body {
+		 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100);
+		  background-image: url('images/background_login.jpg')   ;
+		  /*; 
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;no-repeat center center cover
+		  background-size: cover;*/
+		  font-family: 'Roboto', 'sans-serif';
+		  background:#EEA731;
+		}
+
+		.login-card {
+		  padding: 70px;
+		  width: 274px;
+		  background-color: #F7F7F7;
+		  margin: 100px auto 0px;
+		  border-radius: 2px;
+		  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+		  overflow: hidden;
+		}
+
+		.login-card h3 {
+		  font-weight: 100;
+		  text-align: center;
+		  font-size: 2.3em;
+		}
+
+		.login-card input[type=submit] {
+		  width: 100%;
+		  display: block;
+		  margin-bottom: 20px;
+		  position: relative;
+		}
+
+		.login-card input[type=text], input[type=password] {
+
+		  height: 44px;
+		  font-size: 16px;
+		  width: 100%;
+		  margin-bottom: 10px;
+		  -webkit-appearance: none;
+		 /* background: #fff;*/
+		  border: 1px solid #d9d9d9;
+		  border-top: 1px solid #c0c0c0;
+		  /* border-radius: 2px; */
+		  padding: 8px 25px;
+		  box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		}
+
+
+		.login-card input[type=text]:hover, input[type=password]:hover {
+		  border: 1px solid #b9b9b9;
+		  border-top: 1px solid #a0a0a0;
+		  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+		}
+
+		.login {
+		  text-align: center;
+		  font-size: 14px;
+		  font-family: 'Arial', sans-serif;
+		  font-weight: 700;
+		  height: 36px;
+		  padding:0px 8px;
+		 /*border-radius: 3px;*/ 
+		/* -webkit-user-select: none;
+		  user-select: none; */
+		}
+
+		.username
+		{
+			background: url('css/images/email.png') no-repeat 6px 14px; 
+			
+		}
+		.password
+			{
+				background: url('css/images/password.png') no-repeat  6px 14px; 
+				
+			}
+		.login-submit {
+		  /* border: 1px solid #3079ed; */
+		  border: 0px;
+			color: #fff;
+		 
+		  text-shadow: 0 1px rgba(0,0,0,0.1); 
+		  background-color: #EEA731; 
+		  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+		}
+
+		.login-submit:hover {
+		  /* border: 1px solid #2f5bb7; */
+			color:  #EEA731;
+		  border: 0px;
+		  text-shadow: 0 1px rgba(0,0,0,0.3);
+		  background-color: grey;
+		  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+		}
+
+		.login-card a {
+		  text-decoration: none;
+		  color: #666;
+		  font-weight: 400;
+		  text-align: center;
+		  display: inline-block;
+		  opacity: 0.6;
+		  transition: opacity ease 0.5s;
+		}
+
+		.login-card a:hover {
+		  opacity: 1;
+		}
+
+		.login-help {
+		  width: 100%;
+		  text-align: center;
+		  font-size: 12px;
+		}
+		textarea:focus, input:focus {
+			border-color: #ff0000;
+		}
+		.login-card label
+		{
+			font-family : font-family: 'Arial', 'sans-serif';
+			font-size: 20px ;
+			margin-bottom:10px;
+			padding-right:20px;
+		}
+		.login-card select
+		{
+			padding:2px 0px;
+			font-size:14px;
+			margin-bottom:10px;
+			overflow-y:scroll;
+		}
+	   </style>
+   </head>
+
+  <body>
+	
+    <div class="login-card">
+    <h3>Login to Your Account</h3><br>
+  <form action ="home.php" method ="post" onsubmit = "return validation(user.value,password.value,topic.value)" >
+    <input type="text" name="user" placeholder="Email*" class  = "username" id = "user"/>
+    <input type="password" name="password" placeholder="Password*" class = "password" id = "password" />
+    <input type="submit" name="login" class="login login-submit" value="Take me in!">
+	
+	<label for "topic">Topics</label><select name="topic" id="topic">
+			<option value="" disabled selected>--Select Topic--</option> 
+			<option value="BollyWoodMovies" >BollyWood Movies</option>
+			<option value="Hollywood">Hollywood</option>
+			<option value="Geography">Geography</option>
+			<option value="IndianConstitution">Indian Constitution</option>
+			<option value="FamousPersonalities" >Famous Personalities</option>
+			<option value="CurrentAffairs">Current Affairs</option>
+			<option value="Chemistry">Chemistry</option>
+			<option value="EnglishGrammer">English Grammer</option>
+			<option value="Mythology" >Mythology</option>
+			<option value="EnglishLiterature">English Literature</option>
+			<option value="IndianPolitics">Indian Politics</option>
+			<option value="Cricket">Cricket</option>
+			<option value="HumanBody" >Human Body</option>
+			<option value="Physics">Physics</option>
+			<option value="History">History</option>
+			<option value="Football">Football</option>
+			<option value="Computer">Computer</option>
+			<option value="Tennis">Tennis</option>
+		</select>
+	
+	<div id = "underInput"></div>
+  </form>
+    
+</div>
+</body>
+</html>
